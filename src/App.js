@@ -26,7 +26,6 @@ function App() {
   const [successMsg,setSuccessMsg] = useState('');
   const [errorMsg,setErrorMsg] = useState('');
 
-
   const handleSubmit = (event)=>{
     event.preventDefault();
 
@@ -128,7 +127,7 @@ function App() {
        clearPending={clearPending}
       />}/>
       <Route path='/complete' element={<Complete clearCompleted={clearCompleted} complete={complete}/>}/>
-    </Routes>
+    </Routes> 
     </Router>
     </>
   );
