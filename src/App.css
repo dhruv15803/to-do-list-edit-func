@@ -170,8 +170,14 @@ a{
   gap: 6px;
 }
 
+
 .complete-title{
   font-weight: bold;
+}
+
+.complete-description{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 
@@ -200,6 +206,14 @@ a{
 
   #navbar{
     justify-content: space-around;
+  }
+  .pending-list-item{
+    gap: 8px;
+    flex-direction: column;
+  }
+  .complete-list-item{
+    flex-direction: column;
+    gap:8px;
   }
 
 }
