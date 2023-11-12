@@ -50,7 +50,7 @@ a{
 
 .pending-form{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px;
@@ -94,11 +94,16 @@ a{
   align-items: center;
 }
 
-.item-title{
+.item-title-desc{
   display: flex;
-  flex-direction: row;
+  flex-direction:  column;
   flex-wrap: wrap;
   width: 80%;
+  gap:6px;
+}
+
+.item-title{
+  font-weight: bold;
 }
 
 .item-btns{
@@ -153,8 +158,29 @@ a{
   padding: 8px;
   display: flex;
   border-bottom: 1px solid black;
+  flex-direction: row;
   align-items: center;
 }
+
+
+.complete-title-desc{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 6px;
+}
+
+.complete-title{
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
 
 .clear-pending{
   display: flex;

@@ -19,6 +19,7 @@ function App() {
   }
 
   const [task,setTask] = useState('');
+  const [description,setDescription] = useState('');
   const [items,setItems] = useState(pendingTasks);
   const [complete,setComplete]= useState(completedTasks);
   const [isEdit,setIsEdit] = useState(false);
@@ -38,8 +39,12 @@ function App() {
     }
 
     if(isEdit===false){
-      setItems(prevItems=>[...prevItems,task]);
+      setItems(prevItems=>[...prevItems,{
+        "task":task,
+        "description":description
+      }]);
       setTask('');
+      setDescription('');
       setSuccessMsg('Added to list');
       setTimeout(()=>{
         setSuccessMsg('');
@@ -48,13 +53,17 @@ function App() {
     else{
       const newItems = items.map((val,i)=>{
         if(i===editIndex){
-          return task;
+          return {
+            "task":task,
+            "description":description
+          }
         }
         else{
           return val;
         }
       })
       setItems(newItems);
+      setDescription('');
       setTask('');
       setEditIndex(null);
       setIsEdit(false);
@@ -87,7 +96,8 @@ function App() {
   }
 
   const editTask = (index)=>{
-    setTask(items[index]);
+    setTask(items[index].task);
+    setDescription(items[index].description);
     setEditIndex(index);
     setIsEdit(true);
   }
@@ -108,6 +118,7 @@ function App() {
     localStorage.setItem('pendingTasks',JSON.stringify(items));
   },[items])
 
+
   return (
     <>
     <Router>
@@ -125,6 +136,8 @@ function App() {
        successMsg={successMsg}
        errorMsg={errorMsg}
        clearPending={clearPending}
+       description={description}
+       setDescription={setDescription}
       />}/>
       <Route path='/complete' element={<Complete clearCompleted={clearCompleted} complete={complete}/>}/>
     </Routes> 

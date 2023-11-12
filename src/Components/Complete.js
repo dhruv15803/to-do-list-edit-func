@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import CompleteItem from './CompleteItem'
 
 const Complete = ({complete,clearCompleted}) => {
   return (
@@ -12,9 +13,7 @@ const Complete = ({complete,clearCompleted}) => {
             </div>
             <div className="complete-list-container">
                 {complete.map((item,i)=>{
-                    return <div className="complete-list-item">
-                    <p>{item}</p>
-                </div>
+                    return <CompleteItem task={item.task} description={item.description}/>
                 })}
             </div>
             {complete.length!==0 && <div className="clear-completed">
